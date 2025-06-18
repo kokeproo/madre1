@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mary Kay Belleza</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff0f5;
+      color: #333;
+    }
+    header {
+      background-color: #f76ca4;
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+    .slider {
+      position: relative;
+      overflow: hidden;
+      height: 350px;
+    }
+    .slider img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      animation: slide 20s infinite;
+    }
+    @keyframes slide {
+      0%, 25% {opacity: 1;}
+      33.33%, 58.33% {opacity: 0;}
+      66.66%, 91.66% {opacity: 1;}
+    }
+    .productos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px;
+      background-color: #fff;
+    }
+    .producto {
+      background: #ffe6f0;
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .producto.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .producto img {
+      width: 100%;
+      max-width: 220px;
+      border-radius: 10px;
+    }
+    section.info, section.blog {
+      padding: 40px;
+      background: #fce4ec;
+    }
+    footer {
+      background: #f76ca4;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mary Kay Belleza</h1>
+    <p>Cuidados que inspiran confianza</p>
+  </header>
+
+  <section class="slider">
+    <img src="https://www.marykay.es/es-es/_layouts/mkhome/images/hero1.jpg" alt="Hidratación Verano">
+  </section>
+
+  <section class="productos">
+    <div class="producto">
+      <img src="https://m.media-amazon.com/images/I/51hJf0Oa3vL._AC_SY450_.jpg" alt="Base 3D Matte N190">
+      <h3>Base 3D Matte N190</h3>
+      <p>29,99 €</p>
+      <p>Alta cobertura, 4.9⭐ (1200 reseñas)</p>
+    </div>
+    <div class="producto">
+      <img src="https://m.media-amazon.com/images/I/61PRnckZXgL._AC_SY450_.jpg" alt="Base SPF15">
+      <h3>Base con SPF 15</h3>
+      <p>27,00 €</p>
+      <p>Ligera, protección solar – 4.7⭐</p>
+    </div>
+    <div class="producto">
+      <img src="https://m.media-amazon.com/images/I/61p4jkfH5nL._AC_SY450_.jpg" alt="Set Satin Lips">
+      <h3>Set Satin Lips</h3>
+      <p>Bálsamo: 17 €, Exfoliante: 14,2 €</p>
+      <p>Labios suaves, 4.9⭐</p>
+    </div>
+  </section>
+
+  <section class="info">
+    <h2>Sobre Mary Kay</h2>
+    <p>Mary Kay es una empresa de belleza con más de 50 años en el mercado, dedicada a empoderar a las mujeres mediante productos de alta calidad para el cuidado de la piel, maquillaje y fragancias. Nuestros productos son dermatológicamente probados, libres de crueldad animal y desarrollados con tecnología de vanguardia.</p>
+  </section>
+
+  <section class="blog">
+    <h2>Blog de Belleza</h2>
+    <h3>Cómo cuidar tu piel en verano</h3>
+    <p>El sol y el calor pueden resecar tu piel. Usa hidratantes con protección solar como la Base SPF15 para un acabado ligero y seguro.</p>
+    <h3>Tips para labios suaves</h3>
+    <p>Exfolia tus labios dos veces por semana con el set Satin Lips y aplica bálsamo para mantenerlos hidratados todo el día.</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Sitio de Belleza Mary Kay. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('scroll', () => {
+      document.querySelectorAll('.producto').forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight - 50) {
+          el.classList.add('visible');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
